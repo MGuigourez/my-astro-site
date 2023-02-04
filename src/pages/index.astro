@@ -1,0 +1,22 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.astro';
+
+import TodoList from '../components/TodoList.vue';
+
+import { SITE_TITLE } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		
+		<TodoList client:visible/>
+		<Footer />
+	</body>
+</html>
