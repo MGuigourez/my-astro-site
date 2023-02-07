@@ -6,13 +6,13 @@ export type TodoObject = {
   done: boolean;
 };
 
-export type TodoItem = TodoObject & { id: number };
+export type TodoItem = TodoObject & { id: string };
 
 export const counter = atom(0);
 
 export const task = atom("");
 
-export const todos = map<Record<number, TodoItem>>({});
+export const todos = map<Record<string, TodoItem>>({});
 
 export function addTodo(todo: TodoObject) {
   const counterVal = counter.get();
@@ -31,7 +31,7 @@ export function addTodo(todo: TodoObject) {
   console.log(task.get());
 }
 
-export function changeTodoDone(id: number) {
+export function changeTodoDone(id: string) {
   const todoToUpdate: TodoItem = todos.get()[id];
 
   todos.setKey(id, {
